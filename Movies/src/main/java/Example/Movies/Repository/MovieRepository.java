@@ -16,6 +16,7 @@ public interface MovieRepository extends PagingAndSortingRepository<Movie, Long>
             "LOWER(m.genre) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
             "LOWER(m.director) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
             "LOWER(m.language) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(CAST(m.rating AS string)) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
             "LOWER(m.country) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     Page<Movie> searchWithSorting(
             @Param("keyword") String keyword, Pageable pageable);
