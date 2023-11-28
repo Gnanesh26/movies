@@ -24,10 +24,8 @@ public class MovieController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(required = false) String sortBy,
-            @RequestParam(required = false) String sortDirection
-    ) {
+            @RequestParam(required = false) String sortDirection) {
         Page<Movie> movies;
-
         if (keyword == null || keyword.isEmpty()) {
             movies = movieService.getAllMoviesPaged(page, size);
         } else {
