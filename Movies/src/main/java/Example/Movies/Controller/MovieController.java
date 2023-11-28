@@ -27,13 +27,16 @@ public class MovieController {
             @RequestParam(required = false) String sortDirection
     ) {
         Page<Movie> movies;
+
         if (keyword == null || keyword.isEmpty()) {
             movies = movieService.getAllMoviesPaged(page, size);
         } else {
-            movies = movieService.searchByKeyword(keyword, page, size, sortBy, sortDirection);
+            if (sortBy == null || sortDirection == null) {
+                movies = movieService.searchByKeyword(keyword, page, size);
+            } else {
+                movies = movieService.searchByKeyword(keyword, page, size, sortBy, sortDirection);
+            }
         }
-
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 }
-

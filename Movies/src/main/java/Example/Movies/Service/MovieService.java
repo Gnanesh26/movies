@@ -26,6 +26,11 @@ public class MovieService {
         Pageable pageable = PageRequest.of(page, size, sort);
         return movieRepository.searchWithSorting(keyword, pageable);
     }
+
+    public Page<Movie> searchByKeyword(String keyword, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return movieRepository.searchWithSorting(keyword, pageable);
+    }
 }
 
 
