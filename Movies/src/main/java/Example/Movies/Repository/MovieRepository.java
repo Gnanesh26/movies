@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MovieRepository extends PagingAndSortingRepository<Movie, Long> {
 
+    
+
     @Query("SELECT m FROM Movie m WHERE " +
             "LOWER(m.title) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
             "LOWER(m.genre) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +

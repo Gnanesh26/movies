@@ -36,8 +36,12 @@ public class Movie {
         this.budget = budget;
         this.boxOfficeRevenue = boxOfficeRevenue;
     }
+    public Movie(){
+        
+    }
 
-    public Movie() {
+    
+    public Movie(String string, String string2, String string3, int i, double d, String string4, String string5) {
     }
 
     public Long getMovieId() {
